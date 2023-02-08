@@ -1,0 +1,78 @@
+@import 'styles/colors';
+
+.text {
+  max-width: 840px;
+  color: $white;
+  margin-bottom: 80px;
+}
+
+.title {
+  margin-top: 20px;
+  color: $white;
+}
+
+.title_color_reverse {
+  color: $almost-black;
+}
+
+.list {
+  margin: 80px -20px -60px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 0 20px 80px;
+  flex: 0 0 calc(25% - 40px);
+  width: calc(25% - 40px);
+  max-width: calc(25% - 40px);
+
+  & > * {
+    color: $white;
+  }
+}
+
+.item_color_reverse {
+  & > * {
+    color: $almost-black;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    margin-top: 0;
+  }
+
+  .text {
+    margin-bottom: 60px;
+  }
+
+  .list {
+    margin-top: 60px;
+  }
+
+  .item {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 950px) {
+  .item {
+    flex-basis: calc(50% - 40px);
+    width: calc(50% - 40px);
+    max-width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    margin-top: 40px;
+  }
+
+  .item {
+    flex-basis: calc(100% - 40px);
+    width: calc(100% - 40px);
+    max-width: 275px;
+    margin-bottom: 40px;
+  }
+}

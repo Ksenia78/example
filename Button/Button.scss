@@ -1,0 +1,209 @@
+@import "../../styles/colors";
+
+.button {
+  background: transparent;
+  border: 1px solid $white;
+  border-radius: 0;
+  color: $white;
+  cursor: pointer;
+  font-family: "Blender Pro";
+  font-size: 15px;
+  font-weight: 900;
+  padding: 10px;
+  position: relative;
+
+  &:hover {
+    background: $tango;
+    border-color: $tango;
+  }
+
+  &-cut {
+    &_bottom {
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        100% calc(100% - 10px),
+        calc(100% - 10px) 100%,
+        10px 100%,
+        0% calc(100% - 10px)
+      );
+
+      &::before {
+        border-top: 1px solid $white;
+        bottom: 2px;
+        content: "";
+        left: -4px;
+        position: absolute;
+        transform: rotate(45deg);
+        width: 20px;
+      }
+
+      &::after {
+        border-top: 1px solid $white;
+        bottom: 2px;
+        content: "";
+        position: absolute;
+        right: -4px;
+        transform: rotate(-45deg);
+        width: 20px;
+      }
+
+      &:hover {
+        &::before {
+          border-top: 1px solid $tango;
+        }
+
+        &::after {
+          border-top: 1px solid $tango;
+        }
+      }
+    }
+
+    &_bottom_left {
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        10px 100%,
+        0% calc(100% - 10px)
+      );
+
+      &::before {
+        border-top: 1px solid $white;
+        bottom: 2px;
+        content: "";
+        left: -4px;
+        position: absolute;
+        transform: rotate(45deg);
+        width: 20px;
+      }
+
+      &:hover {
+        &::before {
+          border-top: 1px solid $tango;
+        }
+      }
+    }
+
+    &_bottom_right {
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - 10px),
+        calc(100% - 10px) 100%,
+        0% 100%
+      );
+
+      &::after {
+        border-top: 1px solid $white;
+        bottom: 2px;
+        content: "";
+        position: absolute;
+        right: -4px;
+        transform: rotate(-45deg);
+        width: 20px;
+      }
+
+      &:hover {
+        &::after {
+          border-top: 1px solid $tango;
+        }
+      }
+    }
+  }
+
+  &-primary {
+    border-color: $tango;
+
+    &::before {
+      border-top: 1px solid $tango;
+    }
+
+    &::after {
+      border-top: 1px solid $tango;
+    }
+  }
+
+  &-primary#{&}-active {
+    background-color: $tango;
+  }
+
+  &-secondary {
+    border-color: $emperor;
+
+    &::before {
+      border-top: 1px solid $emperor;
+    }
+
+    &::after {
+      border-top: 1px solid $emperor;
+    }
+  }
+
+  &-tertiary {
+    border: none;
+    color: $tango;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  &-option {
+    --shear: 6px;
+
+    background: $mine-shaft-5;
+    border: none;
+    clip-path: polygon(
+      0 var(--shear),
+      var(--shear) 0,
+      calc(100% - var(--shear)) 0,
+      100% var(--shear),
+      100% calc(100% - var(--shear)),
+      calc(100% - var(--shear)) 100%,
+      var(--shear) 100%,
+      0 calc(100% - var(--shear))
+    );
+    color: $sonic-silver;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+
+    &:hover {
+      color: $wild-sand;
+    }
+  }
+
+  &-option#{&}-active {
+    background: $tango;
+    color: $wild-sand;
+  }
+
+  &-disabled {
+    border: 1px solid $emperor;
+    color: $emperor;
+    cursor: initial;
+
+    &::before {
+      border-top: 1px solid $emperor;
+    }
+
+    &::after {
+      border-top: 1px solid $emperor;
+    }
+
+    &:hover {
+      background: initial;
+      border-color: initial;
+
+      &::before {
+        border-top: 1px solid $emperor;
+      }
+
+      &::after {
+        border-top: 1px solid $emperor;
+      }
+    }
+  }
+}

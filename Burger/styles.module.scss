@@ -1,0 +1,63 @@
+@import 'styles/colors';
+
+.burger {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  position: relative;
+  display: none;
+
+  span {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 24px;
+    height: 2px;
+    background: $almost-black;
+    opacity: 1;
+    transition: all 0.6s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 7.5px;
+      right: 0;
+      width: 24px;
+      height: 2px;
+      background: $almost-black;
+      transition: all 0.6s;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -7px;
+      right: 0;
+      width: 24px;
+      height: 2px;
+      background: $almost-black;
+    }
+  }
+
+  &_open {
+    span {
+      transform: rotate(-45deg);
+
+      &::after {
+        transform: rotate(90deg);
+        top: 0;
+      }
+
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .burger {
+    display: flex;
+  }
+}
